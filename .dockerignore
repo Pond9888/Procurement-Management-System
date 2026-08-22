@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env*
+!.env.example
+node_modules
+.next
+out
+*.log
+*.md
+preview.html
+README.md
+Dockerfile
+docker-compose*.yml
+.dockerignore
+supabase/.branches
+supabase/.temp

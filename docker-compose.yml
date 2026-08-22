@@ -1,0 +1,44 @@
+# =============================================================
+# Vertex Payment Webapp — docker-compose for local dev / Coolify
+# =============================================================
+# Coolify uses this file directly. Set all env vars in Coolify UI.
+# For local testing: copy .env.example → .env.local then run:
+#   docker compose up --build
+# =============================================================
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vertex-payment-webapp:latest
+    container_name: vertex-payment-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Supabase
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      # Zoho OAuth
+      - ZOHO_CLIENT_ID=${ZOHO_CLIENT_ID}
+      - ZOHO_CLIENT_SECRET=${ZOHO_CLIENT_SECRET}
+      - ZOHO_REDIRECT_URI=${ZOHO_REDIRECT_URI}
+      # Zoho APIs
+      - ZOHO_EXPENSE_BASE_URL=${ZOHO_EXPENSE_BASE_URL}
+      - ZOHO_CLIQ_CHANNEL=${ZOHO_CLIQ_CHANNEL}
+      - ZOHO_MAIL_ACCOUNT_ID=${ZOHO_MAIL_ACCOUNT_ID}
+      - ZOHO_MAIL_FROM=${ZOHO_MAIL_FROM}
+      # PEAK
+      - PEAK_WEBHOOK_SECRET=${PEAK_WEBHOOK_SECRET}
+      # App
+      - APP_URL=${APP_URL}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s

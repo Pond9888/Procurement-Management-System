@@ -1,0 +1,47 @@
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { createMockClient } from './mock-client'
+
+/** DEV ONLY — serve queries from the in-memory seed instead of Supabase */
+function useMockData() {
+  return process.env.NODE_ENV === 'development' && process.env.DEV_MOCK_DATA === 'true'
+}
+
+export async function createClient() {
+  if (useMockData()) return createMockClient()
+
+  const cookieStore = await cookies()
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {
+            // Called from Server Component — cookies set in middleware
+          }
+        },
+      },
+    }
+  )
+}
+
+/** Service role client — only use in server-side API routes, never expose to client */
+export function createServiceClient() {
+  if (useMockData()) return createMockClient()
+
+  const { createClient } = require('@supabase/supabase-js')
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  )
+}
