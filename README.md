@@ -23,6 +23,29 @@ PR creation → PO issuance → Goods Receipt (GRD) → Approval chain → Payme
 
 ---
 
+
+## 🚀 Live Demo & Portfolio Showcase
+
+**🔗 [Live Demo on Vercel](https://procurement-management-system-pond9888.vercel.app)** *(Update with your actual URL)*
+
+To demonstrate the full capability of the system without requiring enterprise Zoho accounts, this project includes a **Dev Login Bypass**. You can use this to simulate different organizational roles and experience the complete Procure-to-Pay (P2P) workflow.
+
+### 🎭 Interactive Walkthrough (P2P Flow)
+
+**1. The Request (Role: `Staff`)**
+- **Action:** Click `Staff` on the Dev Login section of the login page.
+- **Experience:** You are logged in with standard permissions. Navigate to **Purchase Requests (PR)** and click `New PR`. Fill out the form to request new equipment (e.g., Macbook Pro). Once submitted, the document enters the `Pending` state.
+
+**2. The Approval (Role: `Manager`)**
+- **Action:** Click `Logout` (bottom left), then login as `Manager`.
+- **Experience:** The dashboard dynamically updates based on your role. A yellow alert banner appears: *"There are 1 items waiting for your approval"*. Click the banner to view the PR details, verify the cost center, and click **Approve**.
+
+**3. The Executive Review (Role: `Admin / Finance`)**
+- **Action:** Logout, then login as `Admin` or `Finance`.
+- **Experience:** Advanced menus (`Finance Dashboard`, `Payments`, `Master Data`) are now unlocked. Navigate to the **Finance Dashboard** to view real-time aggregated metrics (OPEX vs COGS graphs) and track the newly approved document through the payment pipeline.
+
+*(Note: The portfolio demo uses an in-memory mock database enabled via `NEXT_PUBLIC_DEV_MOCK_DATA=true` to ensure a smooth, pre-populated presentation without external database dependencies.)*
+
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
