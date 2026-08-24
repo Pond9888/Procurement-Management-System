@@ -39,19 +39,19 @@ const NAV_ITEMS: NavItem[] = [
     roles: ['staff', 'team_lead', 'manager', 'excom', 'finance', 'admin'],
   },
   {
-    label: 'ใบขอซื้อ (PR)',
+    label: 'Purchase Requests (PR)',
     href: '/pr',
     icon: FileText,
     roles: ['staff', 'team_lead', 'manager', 'excom', 'finance', 'admin'],
   },
   {
-    label: 'ใบสั่งซื้อ (PO)',
+    label: 'Purchase Orders (PO)',
     href: '/po',
     icon: ShoppingCart,
     roles: ['team_lead', 'manager', 'excom', 'finance', 'admin'],
   },
   {
-    label: 'ใบรับสินค้า (GRD)',
+    label: 'Goods Receipts (GRD)',
     href: '/grd',
     icon: ClipboardCheck,
     roles: ['staff', 'team_lead', 'manager', 'excom', 'finance', 'admin'],
@@ -63,19 +63,19 @@ const NAV_ITEMS: NavItem[] = [
     roles: ['finance', 'admin', 'manager'],
   },
   {
-    label: 'การชำระเงิน',
+    label: 'Payments',
     href: '/payments',
     icon: CreditCard,
     roles: ['finance', 'admin'],
   },
   {
-    label: 'ข้อมูลหลัก',
+    label: 'Master Data',
     href: '/master',
     icon: Users,
     roles: ['admin'],
   },
   {
-    label: 'คู่มือการใช้งาน',
+    label: 'User Manual',
     href: '/guide',
     icon: BookOpen,
     roles: ['staff', 'team_lead', 'manager', 'excom', 'finance', 'admin'],
@@ -140,7 +140,7 @@ export function Sidebar({ role, name }: SidebarProps) {
           className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
         >
           <LogOut className="h-4 w-4" />
-          ออกจากระบบ
+          Logout
         </a>
       </div>
     </aside>

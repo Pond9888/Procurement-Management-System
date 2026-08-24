@@ -54,9 +54,9 @@ export default async function DashboardPage() {
   return (
     <div className="p-6 space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold">สวัสดี, {session.name}</h1>
+        <h1 className="text-2xl font-semibold">Welcome, {session.name}</h1>
         <p className="text-muted-foreground text-sm mt-1">
-          ภาพรวมของระบบจัดซื้อและการเงิน
+          Procurement and Finance Overview
         </p>
       </div>
 
@@ -65,10 +65,10 @@ export default async function DashboardPage() {
         <div className="rounded-lg border border-amber-200 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-500/10 p-4 flex items-center gap-3">
           <Clock className="h-5 w-5 text-amber-600 shrink-0" />
           <p className="text-sm text-amber-800 dark:text-amber-300">
-            มี <strong>{pendingApproval} รายการ</strong> รอการอนุมัติจากคุณ
+            There are <strong>{pendingApproval} items</strong> waiting for your approval
           </p>
           <a href="/grd?filter=pending" className="ml-auto text-sm font-medium text-amber-700 dark:text-amber-400 hover:underline">
-            ดูทั้งหมด →
+            View all →
           </a>
         </div>
       )}
@@ -76,29 +76,29 @@ export default async function DashboardPage() {
       {/* Stat cards */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard
-          title="PR ทั้งหมด"
+          title="Total PRs"
           value={prData.length}
-          sub={`${prPending} รอดำเนินการ`}
+          sub={`${prPending} Pending`}
           icon={FileText}
           href="/pr"
         />
         <StatCard
-          title="PR อนุมัติแล้ว"
+          title="Approved PRs"
           value={prApproved}
-          sub="รายการที่ผ่านแล้ว"
+          sub="Approved"
           icon={CheckCircle}
           href="/pr?status=approved"
           positive
         />
         <StatCard
-          title="GRD ทั้งหมด"
+          title="Total GRDs"
           value={grdData.length}
-          sub={`${grdPending} รอดำเนินการ`}
+          sub={`${grdPending} Pending`}
           icon={ClipboardCheck}
           href="/grd"
         />
         <StatCard
-          title="GRD อนุมัติแล้ว"
+          title="Approved GRDs"
           value={grdApproved}
           sub="รายการที่ผ่านแล้ว"
           icon={CheckCircle}

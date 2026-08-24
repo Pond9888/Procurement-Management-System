@@ -18,12 +18,12 @@ export async function GET(req: NextRequest) {
   const role = (req.nextUrl.searchParams.get('role') ?? 'admin') as UserSession['role']
 
   const MOCK_USERS: Record<string, Partial<UserSession>> = {
-    staff:     { name: 'สุดา รุ่งเรือง',  employee_code: 'EMP-004', department: 'Operations' },
-    team_lead: { name: 'กิตติ พลาย',      employee_code: 'EMP-003', department: 'Engineering' },
-    manager:   { name: 'สมชาย ใจดี',      employee_code: 'EMP-001', department: 'Operations' },
-    excom:     { name: 'ปรีชา วงศ์ดี',    employee_code: 'EMP-010', department: 'Executive' },
-    finance:   { name: 'มณีรัตน์ งาม',   employee_code: 'EMP-002', department: 'Finance' },
-    admin:     { name: 'ผู้ดูแลระบบ',     employee_code: 'ADMIN-001', department: 'IT' },
+    staff:     { name: 'Suda Rungruang',  employee_code: 'EMP-004', department: 'Operations' },
+    team_lead: { name: 'Kitti Plai',      employee_code: 'EMP-003', department: 'Engineering' },
+    manager:   { name: 'Somchai Jaidee',      employee_code: 'EMP-001', department: 'Operations' },
+    excom:     { name: 'Preecha Wongdee',    employee_code: 'EMP-010', department: 'Executive' },
+    finance:   { name: 'Maneerat Ngam',   employee_code: 'EMP-002', department: 'Finance' },
+    admin:     { name: 'Administrator',     employee_code: 'ADMIN-001', department: 'IT' },
   }
 
   const user = MOCK_USERS[role] ?? MOCK_USERS.admin

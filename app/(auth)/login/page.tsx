@@ -179,7 +179,7 @@ const s = {
 }
 
 const DEV_ROLES: { role: string; label: string }[] = [
-  { role: 'admin', label: 'ผู้ดูแลระบบ' },
+  { role: 'admin', label: 'Admin' },
   { role: 'finance', label: 'Finance' },
   { role: 'manager', label: 'Manager' },
   { role: 'team_lead', label: 'Team Lead' },
@@ -259,7 +259,7 @@ function LoginForm() {
             type="button"
             onClick={() => setShowPassword(v => !v)}
             style={s.eyeBtn}
-            aria-label={showPassword ? 'ซ่อนรหัสผ่าน' : 'แสดงรหัสผ่าน'}
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
             {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>
@@ -272,7 +272,7 @@ function LoginForm() {
           onMouseOver={e => ((e.currentTarget as HTMLElement).style.backgroundColor = '#d8d8de')}
           onMouseOut={e => ((e.currentTarget as HTMLElement).style.backgroundColor = '#f2f2f7')}
         >
-          เข้าสู่ระบบ
+          Login
         </a>
 
         {/* Forgot password */}
@@ -288,12 +288,12 @@ function LoginForm() {
         </div>
 
         {/* Footer */}
-        <p style={s.footer}>เฉพาะพนักงาน ProcureFlow Corp. เท่านั้น</p>
+        <p style={s.footer}>Authorized Personnel Only</p>
 
         {/* Dev bypass — stripped from production builds */}
         {process.env.NEXT_PUBLIC_DEV_MOCK_LOGIN === 'true' && (
           <div style={s.devBox}>
-            <p style={s.devLabel}>Dev login — ข้าม Zoho SSO</p>
+            <p style={s.devLabel}>Dev login — Bypass Zoho SSO</p>
             <div style={s.devGrid}>
               {DEV_ROLES.map(({ role, label }) => (
                 <a key={role} href={`/api/auth/dev-login?role=${role}`} style={s.devBtn}>
