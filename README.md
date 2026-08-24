@@ -26,7 +26,7 @@ PR creation → PO issuance → Goods Receipt (GRD) → Approval chain → Payme
 
 ## 🚀 Live Demo & Portfolio Showcase
 
-**🔗 [Live Demo on Vercel](https://procurement-management-system-pond9888.vercel.app)** *(Update with your actual URL)*
+**🔗 [Live Demo on Vercel](https://procurement-management-system-brown.vercel.app)**
 
 To demonstrate the full capability of the system without requiring enterprise Zoho accounts, this project includes a **Dev Login Bypass**. You can use this to simulate different organizational roles and experience the complete Procure-to-Pay (P2P) workflow.
 
