@@ -1,5 +1,7 @@
 # 🏢 Procurement Management System
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPond9888%2FProcurement-Management-System&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY)
+
 > **Full-stack enterprise procurement & payment lifecycle platform**
 > Built with Next.js 16 · React 19 · Supabase · TypeScript
 
