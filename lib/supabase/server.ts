@@ -4,7 +4,7 @@ import { createMockClient } from './mock-client'
 
 /** DEV ONLY — serve queries from the in-memory seed instead of Supabase */
 function useMockData() {
-  return process.env.NODE_ENV === 'development' && process.env.DEV_MOCK_DATA === 'true'
+  return process.env.NEXT_PUBLIC_DEV_MOCK_DATA === 'true'
 }
 
 export async function createClient() {

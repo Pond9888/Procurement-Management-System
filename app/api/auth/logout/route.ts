@@ -3,8 +3,8 @@ import { clearSessionCookie } from '@/lib/auth'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
 
-export async function POST() {
-  const res = NextResponse.redirect(`${APP_URL}/login`)
+export async function POST(req: Request) {
+  const res = NextResponse.redirect(new URL('/login', req.url))
   res.headers.append('Set-Cookie', clearSessionCookie())
   return res
 }
