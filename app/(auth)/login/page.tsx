@@ -291,7 +291,7 @@ function LoginForm() {
         <p style={s.footer}>เฉพาะพนักงาน ProcureFlow Corp. เท่านั้น</p>
 
         {/* Dev bypass — stripped from production builds */}
-        {process.env.NODE_ENV === 'development' && (
+        {process.env.NEXT_PUBLIC_DEV_MOCK_LOGIN === 'true' && (
           <div style={s.devBox}>
             <p style={s.devLabel}>Dev login — ข้าม Zoho SSO</p>
             <div style={s.devGrid}>

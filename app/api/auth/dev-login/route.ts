@@ -11,7 +11,7 @@ import type { UserSession } from '@/types'
  *   role = staff | team_lead | manager | excom | finance | admin  (default: admin)
  */
 export async function GET(req: NextRequest) {
-  if (process.env.NODE_ENV !== 'development' || process.env.DEV_MOCK_LOGIN !== 'true') {
+  if (process.env.NEXT_PUBLIC_DEV_MOCK_LOGIN !== 'true') {
     return NextResponse.json({ error: 'Not available in production' }, { status: 403 })
   }
 
